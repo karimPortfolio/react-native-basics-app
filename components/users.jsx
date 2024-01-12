@@ -1,42 +1,43 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
+import List from './List';
 
 const Users = ({users}) => {
 
-    const List = () => {
+    // const List = () => {
+        
+    //     const handlePress = (name) => {
+    //         const msg = `You clicked ${name} card.`
+    //         alert(msg);
+    //     }
 
-        const handlePress = (name) => {
-            const msg = `You clicked ${name} card.`
-            alert(msg);
-        }
-
-        return(
-            <ScrollView style={styles.scrollView}>
-                {users.map( (user) => (
-                    <View key={user.id} style={styles.card}>
-                        <View style={styles.cardGrid}>
-                            <Text style={styles.nameText}>{user.name}</Text>
-                            <Text>{user.username}</Text>
-                        </View>
-                        <Text style={styles.text}>{user.email}</Text>
-                        <Text style={styles.text}>Website link: {user.website} </Text>
-                        <View style={styles.buttonContainer}>
-                            <Button
-                            onPress={ () => handlePress(user.name) }
-                            title='Click me!'
-                            color='#4f46e5'
-                            />
-                        </View>
-                    </View>
-                ))}
-            </ScrollView>
-        )
-    }
+    //     return(
+    //         <ScrollView style={styles.scrollView}>
+    //             {users.map( (user) => (
+    //                 <View key={user.id} style={styles.card}>
+    //                     <View style={styles.cardGrid}>
+    //                         <Text style={styles.nameText}>{user.name}</Text>
+    //                         <Text>{user.username}</Text>
+    //                     </View>
+    //                     <Text style={styles.text}>{user.email}</Text>
+    //                     <Text style={styles.text}>Website link: {user.website} </Text>
+    //                     <View style={styles.buttonContainer}>
+    //                         <Button
+    //                         onPress={ () => handlePress(user.name) }
+    //                         title='Click me!'
+    //                         color='#4f46e5'
+    //                         />
+    //                     </View>
+    //                 </View>
+    //             ))}
+    //         </ScrollView>
+    //     )
+    // }
 
     return (
         <View style={styles.container}>
             <Text style={styles.usersTitle}>Our users</Text>
-            <List />
+            <List users={users} />
         </View>
     )
 }

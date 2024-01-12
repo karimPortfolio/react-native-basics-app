@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, ScrollView } from 'react-native';
 import Users from './components/users'
 import { useState } from 'react';
-import fetchUsers from './api/fetchUsers';
+import fetchUsers from './services/api/fetchUsers';
+import InputView from './components/input';
 
 export default function App() {
 
@@ -17,23 +18,29 @@ export default function App() {
               </Text>
             </View>
             <View style={styles.avatar}>
-                <Text style={styles.avatar.text}>MB</Text>
+                {/* <Text style={styles.avatar.text}>MB</Text> */}
+                <Image
+                style={styles.avatarImg}
+                source={{ uri:'https://avatars.githubusercontent.com/u/92030288?v=4' }}
+                />
             </View>
         </View>
      )
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Head />
       <Text style={styles.title} > Welcome to my mobile application </Text>
       <Users users={users} />
-    </View>
+      <InputView/>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingBottom:60,
     backgroundColor: '#fff',
     height:'100%'
   },
@@ -41,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop:20,
     fontSize:30,
     textAlign:'center',
-    color:'#0000FF'
+    color:'#4f46e5'
   },
   logoText:{
     color:'#4f46e5',
@@ -74,6 +81,11 @@ const styles = StyleSheet.create({
     text:{
       color:'white'
     }
+  },
+  avatarImg:{
+    width:'99%',
+    height:'99%',
+    borderRadius:'50%'
   }
 
 });
